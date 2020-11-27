@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class Main {
-    public static void binaryToDenary(){
+    public static int binaryToDenary() {
         Scanner input = new Scanner (System.in);
         System.out.println("Enter an 8-bit binary number");
         String binary = input.nextLine();
@@ -40,20 +40,86 @@ public class Main {
         return total;
     }
 
+    public static String denaryToBinary() {
+        Scanner input = new Scanner (System.in);
+        System.out.println("Enter a denary number up to but not including 256");
+        int denary = input.nextInt();
+        String binary = "";
+        if (denary >= 128) {
+            binary = binary + "1";
+            denary = denary - 128;
+        } else {
+            binary = binary + "0";
+        }
+        if (denary >= 64) {
+            binary = binary + "1";
+            denary = denary - 64;
+        } else {
+            binary = binary + "0";
+        }
+        if (denary >= 32) {
+            binary = binary + "1";
+            denary = denary - 32;
+        } else {
+            binary = binary + "0";
+        }
+        if (denary >= 16) {
+            binary = binary + "1";
+            denary = denary - 16;
+        } else {
+            binary = binary + "0";
+        }
+        if (denary >= 8) {
+            binary = binary + "1";
+            denary = denary - 8;
+        } else {
+            binary = binary + "0";
+        }
+        if (denary >= 4) {
+            binary = binary + "1";
+            denary = denary - 4;
+        } else {
+            binary = binary + "0";
+        }
+        if (denary >= 2) {
+            binary = binary + "1";
+            denary = denary - 2;
+        } else {
+            binary = binary + "0";
+        }
+        if (denary >= 1) {
+            binary = binary + "1";
+            denary = denary - 1;
+        } else {
+            binary = binary + "0";
+        }
+        return binary;
+    }
+
     public static void main(String[] args) {
-        /*Scanner input = new Scanner (System.in);
+        Scanner input = new Scanner (System.in);
         System.out.println("What type are you converting from: Binary, Denary, or Hex?");
         String fromType = input.nextLine();
+        String toType = "";
         if (fromType.equals("Binary")) {
             System.out.println("What type are you converting to: Denary or Hex?");
-            String toType = input.nextLine();
+            toType = input.nextLine();
         } else if (fromType.equals("Denary")) {
             System.out.println("What type are you converting to: Binary or Hex?");
-            String toType = input.nextLine();
+            toType = input.nextLine();
         } else {
             System.out.println("What type are you converting to: Binary or Denary?");
-            String toType = input.nextLine();
-        }*/
-        System.out.println(binaryToDenary());
+            toType = input.nextLine();
+        }
+        if (fromType.equals("Binary")) {
+            if (toType.equals("Denary")) {
+                System.out.println(binaryToDenary());
+            }
+        }
+        if (fromType.equals("Denary")) {
+            if (toType.equals("Binary")) {
+                System.out.println(denaryToBinary());
+            }
+        }
     }
 }
